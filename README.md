@@ -21,6 +21,7 @@
 <br/>
 
 ## Techs used
+
 - HTML
 - JavaScript
 - React.js
@@ -30,17 +31,17 @@
 - Netlify
 
 ## 🛠 Function with Screenshots(soon)
+
 - Show entire items
 - Add an item
 - Delete an item
 - Checkbox for items
 - Filtering for items
 - Darkmode
+- Save on the localstorage
 
 ## ✔ Done
 
-
 ## 💻 URL
-
 
 ## 📖 Todo
