@@ -5,18 +5,3 @@ li {
 .App {
   text-align: center;
 }
-
-.content {
-  display: flex;
-  flex-direction: column;
-}
-
-.toDoList {
-  display: flex;
-  justify-content: space-around;
-}
-
-.addToDo {
-  display: flex;
-  justify-content: center;
-}
