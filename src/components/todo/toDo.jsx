@@ -13,7 +13,7 @@ const ToDo = ({toDo, onDelete}) => {
       <li className={styles.title}>
         {toDo.name} {toDo.id}
       </li>
-      <button className={styles.btn} onClick={handleDelete}>
+      <button className={styles.deleteBtn} onClick={handleDelete}>
         <FaTrashAlt />
       </button>
     </div>

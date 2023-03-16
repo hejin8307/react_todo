@@ -1,0 +1,16 @@
+.contain {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter {
+  display: flex;
+}
+
+.filter > button,
+.darkmodeBtn {
+  margin: 0.5rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
