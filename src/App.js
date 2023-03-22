@@ -1,4 +1,4 @@
-import {useRef, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import styles from './app.module.css';
 import AddToDo from './components/add_form/addToDo';
 import Header from './components/header/header';
@@ -16,18 +16,33 @@ function App() {
     },
   ]);
   const [input, setInput] = useState('');
-  const [toDos, setToDos] = useState([
-    {
-      id: 0,
-      name: '강의보기',
-    },
-    {
-      id: 1,
-      name: '카페가기',
-    },
-  ]);
+  // const [toDos, setToDos] = useState([
+  //   {
+  //     id: 0,
+  //     name: '강의보기',
+  //   },
+  //   {
+  //     id: 1,
+  //     name: '카페가기',
+  //   },
+  // ]);
 
-  const nextId = useRef(2);
+  const [toDos, setToDos] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const saved = window.localStorage.getItem('toDos');
+      if (saved !== null) {
+        return JSON.parse(saved);
+      } else {
+        return [''];
+      }
+    }
+  });
+
+  const nextId = useRef(0);
+
+  useEffect(() => {
+    window.localStorage.setItem('toDos', JSON.stringify(toDos));
+  }, [toDos]);
 
   const handleInput = (e) => {
     setInput(e.target.value);
@@ -36,13 +51,15 @@ function App() {
   const handleAdd = (e) => {
     e.preventDefault();
     setToDos([...toDos, {id: nextId.current, name: input}]);
-    setIsChecked([...isChecked, {id: nextId.current, isChecked: false}]);
+    localStorage.setItem('toDos', JSON.stringify(toDos));
+    // setIsChecked([...isChecked, {id: nextId.current, isChecked: false}]);
     nextId.current += 1;
   };
 
   const handleDelete = (toDo) => {
     console.log(toDo);
     setToDos((toDos) => toDos.filter((item) => item.id !== toDo.id));
+    localStorage.setItem('toDos', JSON.stringify(toDos));
     setIsChecked((isChecked) =>
       isChecked.filter((item) => item.id !== toDo.id)
     );
