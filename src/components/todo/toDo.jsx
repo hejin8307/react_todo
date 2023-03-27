@@ -9,7 +9,12 @@ const ToDo = ({toDo, onCheck, onDelete}) => {
 
   return (
     <div className={styles.toDoList}>
-      <input type="checkbox" id={toDo.id} onChange={(e) => onCheck(e.target)} />
+      <input
+        type="checkbox"
+        id={toDo.id}
+        checked={toDo.isChecked}
+        onChange={(e) => onCheck(e.target)}
+      />
       <li className={styles.title}>
         {toDo.name} {toDo.id}
       </li>

@@ -7,38 +7,21 @@ import ToDoList from './components/todo_list/toDoList';
 function App() {
   const [isChecked, setIsChecked] = useState([
     {
-      id: 0,
-      isChecked: false,
-    },
-    {
-      id: 1,
-      isChecked: false,
+      id: Number,
+      isChecked: Boolean,
     },
   ]);
   const [input, setInput] = useState('');
-  // const [toDos, setToDos] = useState([
-  //   {
-  //     id: 0,
-  //     name: '강의보기',
-  //   },
-  //   {
-  //     id: 1,
-  //     name: '카페가기',
-  //   },
-  // ]);
-
   const [toDos, setToDos] = useState(() => {
     if (typeof window !== 'undefined') {
       const saved = window.localStorage.getItem('toDos');
       if (saved !== null) {
         return JSON.parse(saved);
       } else {
-        return [''];
+        return [];
       }
     }
   });
-
-  const nextId = useRef(0);
 
   useEffect(() => {
     window.localStorage.setItem('toDos', JSON.stringify(toDos));
@@ -50,27 +33,48 @@ function App() {
 
   const handleAdd = (e) => {
     e.preventDefault();
-    setToDos([...toDos, {id: nextId.current, name: input}]);
-    localStorage.setItem('toDos', JSON.stringify(toDos));
+    setToDos([...toDos, {id: Date.now(), name: input, isChecked: false}]);
     // setIsChecked([...isChecked, {id: nextId.current, isChecked: false}]);
-    nextId.current += 1;
+    // setIsChecked([
+    //   ...isChecked,
+    //   {id: toDos[toDos.length - 1].id, isChecked: false},
+    // ]);
+    // console.log(isChecked);
+    localStorage.setItem('toDos', JSON.stringify(toDos));
   };
 
   const handleDelete = (toDo) => {
-    console.log(toDo);
     setToDos((toDos) => toDos.filter((item) => item.id !== toDo.id));
     localStorage.setItem('toDos', JSON.stringify(toDos));
-    setIsChecked((isChecked) =>
-      isChecked.filter((item) => item.id !== toDo.id)
-    );
-    nextId.current -= 1;
+    // setIsChecked((isChecked) =>
+    //   isChecked.filter((item) => item.id !== toDo.id)
+    // );
   };
 
   const handleCheck = (checkbox) => {
-    setIsChecked([
-      ...isChecked,
-      {id: Number(checkbox.id), isChecked: checkbox.checked},
-    ]);
+    console.log(checkbox);
+    // setIsChecked([
+    //   ...isChecked,
+    //   {id: Number(checkbox.id), isChecked: checkbox.checked},
+    // ]);
+
+    // checkbox.id -> string / toDo.id -> number
+    const clickedObj = toDos.filter((toDo) => {
+      if (toDo.id == checkbox.id) {
+        return toDo;
+      }
+    });
+    const clicked = clickedObj.map((item) => item.isChecked);
+    setToDos(
+      toDos.map((toDo) => {
+        if (toDo.id == checkbox.id) {
+          return {...toDo, isChecked: !clicked[0]};
+        }
+        return toDo;
+      })
+    );
+    // console.log(toDos);
+    localStorage.setItem('toDos', JSON.stringify(toDos));
   };
 
   const handleActive = (checked) => {
