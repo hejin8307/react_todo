@@ -1,4 +1,29 @@
-.addToDo {
+@value makerEnglish, makerKorean from '../../common/font.css';
+
+.contain {
   display: flex;
   justify-content: center;
+}
+
+.addForm {
+  border-radius: 40%;
+  margin: 0.3rem 0rem;
+}
+
+.addBox {
+  border: none;
+  background-color: transparent;
+  padding: 0.3rem;
+}
+
+.addBox::placeholder {
+  font-family: makerEnglish;
+  background-color: transparent;
+}
+
+.addBtn {
+  border: none;
+  background-color: #fcc36e;
+  padding: 0.3rem;
+  font-family: makerEnglish;
 }

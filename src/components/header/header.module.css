@@ -1,6 +1,12 @@
+@value makerEnglish from '../../common/font.css';
+
 .contain {
   display: flex;
   justify-content: space-between;
+}
+
+.img {
+  display: flex;
 }
 
 .filter {
@@ -13,4 +19,5 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+  font-family: makerEnglish;
 }

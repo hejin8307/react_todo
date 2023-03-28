@@ -2,6 +2,10 @@ li {
   list-style: none;
 }
 
-.App {
-  text-align: center;
+.app {
+  /* background-color: #f6f7ff; */
+  background-color: #faf4e8;
+  border-radius: 5%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  height: 50%;
 }

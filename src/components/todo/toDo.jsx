@@ -15,9 +15,7 @@ const ToDo = ({toDo, onCheck, onDelete}) => {
         checked={toDo.isChecked}
         onChange={(e) => onCheck(e.target)}
       />
-      <li className={styles.title}>
-        {toDo.name} {toDo.id}
-      </li>
+      <li className={styles.title}>{toDo.name}</li>
       <button className={styles.deleteBtn} onClick={handleDelete}>
         <FaTrashAlt />
       </button>

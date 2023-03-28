@@ -2,24 +2,29 @@ import React from 'react';
 import styles from './header.module.css';
 import {BiSun} from 'react-icons/bi';
 
-const Header = ({isChecked, onActive, onComplete}) => {
+const Header = ({toDos, onFilters}) => {
+  const handleAll = () => {
+    const all = localStorage.getItem('toDos');
+    onFilters(all);
+  };
+
   const handleActive = () => {
-    const checked = isChecked.filter((checked) => checked.isChecked === false);
-    onActive(checked);
+    const checked = toDos.filter((toDo) => toDo.isChecked === false);
+    onFilters(checked);
   };
 
   const handleComplete = () => {
-    const checked = isChecked.filter((checked) => checked.isChecked === true);
-    onComplete(checked);
+    const checked = toDos.filter((toDo) => toDo.isChecked === true);
+    onFilters(checked);
   };
 
   return (
     <section className={styles.contain}>
       <button className={styles.darkmodeBtn}>
-        <BiSun />
+        <BiSun className={styles.img} />
       </button>
       <div className={styles.filter}>
-        <button>All</button>
+        <button onClick={handleAll}>All</button>
         <button onClick={handleActive}>Active</button>
         <button onClick={handleComplete}>Completed</button>
       </div>

@@ -1,5 +1,6 @@
 import {useEffect, useRef, useState} from 'react';
 import styles from './app.module.css';
+import ActivateList from './components/active_list/activeList';
 import AddToDo from './components/add_form/addToDo';
 import Header from './components/header/header';
 import ToDoList from './components/todo_list/toDoList';
@@ -22,18 +23,30 @@ function App() {
       }
     }
   });
+  // const [toDos, setToDos] = useState([]);
+  const [filters, setFilters] = useState([]);
 
   useEffect(() => {
+    console.log(toDos);
     window.localStorage.setItem('toDos', JSON.stringify(toDos));
   }, [toDos]);
 
-  const handleInput = (e) => {
-    setInput(e.target.value);
-  };
+  useEffect(
+    (checked) => {
+      setFilters(checked);
+      console.log(filters);
+    },
+    [filters]
+  );
 
-  const handleAdd = (e) => {
-    e.preventDefault();
-    setToDos([...toDos, {id: Date.now(), name: input, isChecked: false}]);
+  // const handleInput = (e) => {
+  //   setInput(e.target.value);
+  // };
+
+  const handleAdd = (newToDo) => {
+    console.log(newToDo);
+    // e.preventDefault();
+    setToDos([...toDos, {id: Date.now(), name: newToDo, isChecked: false}]);
     // setIsChecked([...isChecked, {id: nextId.current, isChecked: false}]);
     // setIsChecked([
     //   ...isChecked,
@@ -74,37 +87,31 @@ function App() {
       })
     );
     // console.log(toDos);
-    localStorage.setItem('toDos', JSON.stringify(toDos));
+    // localStorage.setItem('toDos', JSON.stringify(toDos));
   };
 
-  const handleActive = (checked) => {
-    console.log(checked);
-    setToDos(
-      toDos.filter((item) => {
-        return checked.some((clicked) => clicked.id !== item.id);
-      })
-    );
-  };
-
-  const handleComplete = (checked) => {
-    console.log(checked);
-    setToDos(
-      toDos.filter((item) => {
-        return checked.some((clicked) => clicked.id === item.id);
-      })
-    );
+  const handleFilters = (checked) => {
+    // console.log(checked);
+    setFilters(checked);
   };
 
   return (
     <div className={styles.app}>
-      <Header
+      <Header toDos={toDos} onFilters={handleFilters} />
+      <ToDoList
         toDos={toDos}
-        isChecked={isChecked}
-        onActive={handleActive}
-        onComplete={handleComplete}
+        filters={filters}
+        onCheck={handleCheck}
+        onDelete={handleDelete}
+        onFilters={handleFilters}
       />
-      <ToDoList toDos={toDos} onCheck={handleCheck} onDelete={handleDelete} />
-      <AddToDo toDos={toDos} onInput={handleInput} onAdd={handleAdd} />
+      {/* <ActivateList
+        filters={filters}
+        onCheck={handleCheck}
+        onDelete={handleDelete}
+        onFilters={handleFilters}
+      /> */}
+      <AddToDo toDos={toDos} onAdd={handleAdd} />
     </div>
   );
 }

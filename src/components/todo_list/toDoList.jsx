@@ -2,7 +2,7 @@ import React from 'react';
 import ToDo from '../todo/toDo';
 import styles from './toDoList.module.css';
 
-const ToDoList = ({toDos, onCheck, onDelete}) => {
+const ToDoList = ({toDos, filters, onCheck, onDelete, onFilters}) => {
   return (
     <section className={styles.contain}>
       {toDos.length > 0 ? (
