@@ -8,7 +8,7 @@ const AddToDo = ({toDos, onAdd}) => {
   const handleAdd = (event) => {
     event.preventDefault();
     const newToDo = inputRef.current.value;
-    onAdd(newToDo);
+    newToDo && onAdd(newToDo);
     inputRef.current.value = '';
   };
   return (
