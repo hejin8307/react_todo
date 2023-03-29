@@ -1,9 +1,17 @@
 :root {
-  --color-bg-light: #faf4e8;
+  --color-bg-dark: #faf4e8;
+  --color-bg-light: white;
   --color-accent: #fcc36e;
+  --color-text: black;
   --color-white: white;
-  --color-grey: #d1d1d1;
   --color-scrollbar: #aaa7a7;
+}
+
+html.dark {
+  --color-bg-dark: #0b0d11;
+  --color-bg-light: #151b20;
+  --color-text: white;
+  /* --color */
 }
 
 body {

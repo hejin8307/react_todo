@@ -4,16 +4,31 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: var(--color-bg-dark);
+  padding: 0 0.5rem;
 }
 
 .filters {
   display: flex;
 }
 
-.filter,
 .darkmodeBtn {
+  background-color: transparent;
+  color: var(--color-text);
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 150ms ease-out;
+}
+
+.darkmodeBtn:hover {
+  transform: scale(1.1);
+  color: var(--color-accent);
+}
+
+.filter {
   text-transform: capitalize;
   margin: 0.3rem;
+  color: var(--color-text);
   background-color: transparent;
   cursor: pointer;
   font-family: makerEnglish;

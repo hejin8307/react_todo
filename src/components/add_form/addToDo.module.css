@@ -4,14 +4,14 @@
   width: 100%;
   display: flex;
   padding: 1.4rem 1rem;
-  background-color: var(--color-bg-light);
+  background-color: var(--color-bg-dark);
 }
 
 .addInput {
   flex: 1 0 auto;
   border: none;
   outline: none;
-  background-color: var(--color-white);
+  background-color: var(--color-bg-light);
   padding: 0.4rem 1rem;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
@@ -19,7 +19,7 @@
 
 .addInput::placeholder {
   font-family: makerEnglish;
-  background-color: var(--color-white);
+  background-color: var(--color-bg-light);
 }
 
 .addBtn {

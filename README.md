@@ -47,6 +47,7 @@
 - Delete an item
 - Checkbox for items
 - Filtering for items
+- DarkMode
 - Save data
 
 ## 💻 URL
