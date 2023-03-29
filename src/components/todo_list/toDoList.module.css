@@ -2,8 +2,12 @@
   display: flex;
   flex-direction: column;
   background-color: white;
-  min-height: 74%;
-  padding: 0.5rem 0rem;
+  min-height: 78%;
+  margin: 0;
+}
+
+.toDoList {
+  padding: 0;
 }
 
 .message {

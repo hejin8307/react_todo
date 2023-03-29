@@ -2,24 +2,31 @@ import React from 'react';
 import styles from './toDo.module.css';
 import {FaTrashAlt} from 'react-icons/fa';
 
-const ToDo = ({toDo, onCheck, onDelete}) => {
+const ToDo = ({toDo, onUpdate, onDelete}) => {
+  const handleChange = (event) => {
+    onUpdate({
+      ...toDo,
+      status: event.target.checked ? 'completed' : 'active',
+    });
+  };
+
   const handleDelete = () => {
     onDelete(toDo);
   };
 
   return (
-    <div className={styles.toDoList}>
+    <li className={styles.toDoList}>
       <input
-        type="checkbox"
         id={toDo.id}
-        checked={toDo.isChecked}
-        onChange={(e) => onCheck(e.target)}
+        type="checkbox"
+        checked={toDo.status === 'completed'}
+        onChange={handleChange}
       />
-      <li className={styles.title}>{toDo.name}</li>
+      <div className={styles.title}>{toDo.name}</div>
       <button className={styles.deleteBtn} onClick={handleDelete}>
         <FaTrashAlt />
       </button>
-    </div>
+    </li>
   );
 };
 
