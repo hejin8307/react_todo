@@ -4,19 +4,10 @@ import ToDo from '../todo/toDo';
 import styles from './toDoList.module.css';
 
 const ToDoList = ({filter}) => {
-  const [toDos, setToDos] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const saved = window.localStorage.getItem('toDos');
-      if (saved !== null) {
-        return JSON.parse(saved);
-      } else {
-        return [];
-      }
-    }
-  });
+  const [toDos, setToDos] = useState(() => readToDosFromLocalStorage());
 
   useEffect(() => {
-    window.localStorage.setItem('toDos', JSON.stringify(toDos));
+    localStorage.setItem('toDos', JSON.stringify(toDos));
   }, [toDos]);
 
   const handleAdd = (newToDo) => {
@@ -54,11 +45,16 @@ const ToDoList = ({filter}) => {
   );
 };
 
+export default ToDoList;
+
+function readToDosFromLocalStorage() {
+  const toDos = localStorage.getItem('toDos');
+  return toDos ? JSON.parse(toDos) : [];
+}
+
 function getFilteredToDos(toDos, filter) {
   if (filter === 'all') {
     return toDos;
   }
   return toDos.filter((toDo) => toDo.status === filter);
 }
-
-export default ToDoList;
