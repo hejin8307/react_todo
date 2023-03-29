@@ -23,7 +23,9 @@ const ToDo = ({toDo, onUpdate, onDelete}) => {
         checked={toDo.status === 'completed'}
         onChange={handleChange}
       />
-      <div className={styles.title}>{toDo.name}</div>
+      <label htmlFor={toDo.id} className={styles.title}>
+        {toDo.name}
+      </label>
       <span className={styles.icon}>
         <button className={styles.deleteBtn} onClick={handleDelete}>
           <FaTrashAlt />
