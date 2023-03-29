@@ -4,14 +4,21 @@ import {BiSun} from 'react-icons/bi';
 
 const Header = ({filters, filter, onFilterChange}) => {
   return (
-    <header className={styles.contain}>
+    <header className={styles.container}>
       <button className={styles.darkmodeBtn}>
-        <BiSun className={styles.img} />
+        <BiSun />
       </button>
-      <ul className={styles.filter}>
+      <ul className={styles.filters}>
         {filters.map((value, index) => (
           <li key={index}>
-            <button onClick={() => onFilterChange(value)}>{value}</button>
+            <button
+              className={`${styles.filter} ${
+                filter === value && styles.selected
+              }`}
+              onClick={() => onFilterChange(value)}
+            >
+              {value}
+            </button>
           </li>
         ))}
       </ul>

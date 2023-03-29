@@ -34,7 +34,7 @@ const ToDoList = ({filter}) => {
   const filtered = getFilteredToDos(toDos, filter);
 
   return (
-    <section className={styles.contain}>
+    <section className={styles.container}>
       <ul className={styles.toDoList}>
         {filtered.length > 0 ? (
           filtered.map((toDo) => (

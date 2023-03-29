@@ -8,14 +8,14 @@ function App() {
   const [filter, setFilter] = useState(filters[0]);
 
   return (
-    <div className={styles.app}>
+    <>
       <Header
         filters={filters}
         filter={filter}
         onFilterChange={(filter) => setFilter(filter)}
       />
       <ToDoList filter={filter} />
-    </div>
+    </>
   );
 }
 

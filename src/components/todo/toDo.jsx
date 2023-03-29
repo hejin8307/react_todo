@@ -15,17 +15,20 @@ const ToDo = ({toDo, onUpdate, onDelete}) => {
   };
 
   return (
-    <li className={styles.toDoList}>
+    <li className={styles.toDo}>
       <input
+        className={styles.checkbox}
         id={toDo.id}
         type="checkbox"
         checked={toDo.status === 'completed'}
         onChange={handleChange}
       />
       <div className={styles.title}>{toDo.name}</div>
-      <button className={styles.deleteBtn} onClick={handleDelete}>
-        <FaTrashAlt />
-      </button>
+      <span className={styles.icon}>
+        <button className={styles.deleteBtn} onClick={handleDelete}>
+          <FaTrashAlt />
+        </button>
+      </span>
     </li>
   );
 };

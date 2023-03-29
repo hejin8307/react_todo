@@ -17,20 +17,18 @@ const AddToDo = ({toDos, onAdd}) => {
     inputRef.current.value = '';
   };
   return (
-    <section className={styles.contain}>
-      <form ref={formRef} className={styles.addForm} onSubmit={handleAdd}>
-        <input
-          className={styles.addBox}
-          ref={inputRef}
-          type="text"
-          id="name"
-          name="name"
-          value={toDos.name}
-          placeholder="Add Todo"
-        />
-        <button className={styles.addBtn}>Add</button>
-      </form>
-    </section>
+    <form ref={formRef} className={styles.addForm} onSubmit={handleAdd}>
+      <input
+        className={styles.addInput}
+        ref={inputRef}
+        type="text"
+        id="name"
+        name="name"
+        value={toDos.name}
+        placeholder="Add Todo"
+      />
+      <button className={styles.addBtn}>Add</button>
+    </form>
   );
 };
 
