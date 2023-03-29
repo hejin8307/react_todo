@@ -38,9 +38,16 @@
 - Checkbox for items
 - Filtering for items
 - Darkmode
-- Save on the localstorage
+- Save data
 
 ## ✔ Done
+
+- Show entire items
+- Add an item
+- Delete an item
+- Checkbox for items
+- Filtering for items
+- Save data
 
 ## 💻 URL
 
