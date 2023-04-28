@@ -10,7 +10,6 @@
   <img src="https://img.shields.io/badge/React-61DAFB" />
   <img src="https://img.shields.io/badge/Npm-CB3837" />
   <img src="https://img.shields.io/badge/Yarn-2C8EBB" />
-  <img src="https://img.shields.io/badge/Netlify-00C7B7" />
 
 </p>
 
@@ -28,7 +27,6 @@
 - CSS
 - PostCSS
 - Yarn
-- Netlify
 
 ## 🛠 Function with Screenshots(soon)
 
@@ -50,7 +48,8 @@
 - DarkMode
 - Save data
 
-## 💻 URL
+## 💻 Testing
+<img src="https://user-images.githubusercontent.com/31836035/235078366-5efd9e73-4822-4472-960c-0a8644a399a3.gif">
 
 ## 📖 Todo
 
